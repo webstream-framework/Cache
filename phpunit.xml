@@ -11,6 +11,7 @@
       <exclude>
         <directory>vendor</directory>
         <directory>Test</directory>
+        <directory>Modules</directory>
         <file>Driver/ICache.php</file>
       </exclude>
     </whitelist>
