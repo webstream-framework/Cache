@@ -2,8 +2,7 @@
 namespace WebStream\Cache\Driver;
 
 use WebStream\DI\Injector;
-use WebStream\Module\Container;
-use WebStream\Module\Utility\SecurityUtils;
+use WebStream\Container\Container;
 use WebStream\IO\File;
 use WebStream\Exception\Extend\IOException;
 
@@ -15,7 +14,7 @@ use WebStream\Exception\Extend\IOException;
  */
 class TemporaryFile implements ICache
 {
-    use injector, SecurityUtils;
+    use injector;
 
     /**
      * @var Container キャッシュ依存コンテナ
@@ -48,11 +47,11 @@ class TemporaryFile implements ICache
         $writer = null;
         $isAppend = !$overwrite;
 
-        $value = $this->encode([
+        $value = base64_encode(serialize([
             "time" => time(),
             "ttl" => intval($ttl),
             "data" => $data
-        ]);
+        ]));
 
         try {
             $file = new File($this->cacheContainer->cacheDir . '/' . $key . '.cache');
@@ -90,7 +89,7 @@ class TemporaryFile implements ICache
         if ($file->isReadable()) {
             try {
                 $reader = $this->cacheContainer->ioContainer->fileReader->getReader($file);
-                $data = $this->decode($reader->read());
+                $data = unserialize(base64_decode($reader->read()));
                 if ($data['ttl'] > 0) {
                     if (time() > $data['time'] + $data['ttl']) {
                         $this->logger->info("Expired cache: " . $key);

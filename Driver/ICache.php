@@ -1,7 +1,7 @@
 <?php
 namespace WebStream\Cache\Driver;
 
-use WebStream\Module\Container;
+use WebStream\Container\Container;
 
 /**
  * ICache

@@ -2,7 +2,7 @@
 namespace WebStream\Cache\Driver;
 
 use WebStream\DI\Injector;
-use WebStream\Module\Container;
+use WebStream\Container\Container;
 
 /**
  * Apcu
@@ -30,7 +30,10 @@ class Apcu implements ICache
     public function __construct(Container $cacheContainer)
     {
         $this->cacheContainer = $cacheContainer;
-        $this->cachePrefix = $this->cacheContainer->cachePrefix . '.' . $this->cacheContainer->classPrefix . '.';
+        $this->cachePrefix = $this->cacheContainer->cachePrefix . '.';
+        if (!empty($this->cacheContainer->classPrefix)) {
+            $this->cachePrefix .= $this->cacheContainer->classPrefix . '.';
+        }
     }
 
     /**

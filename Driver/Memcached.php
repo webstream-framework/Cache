@@ -2,7 +2,7 @@
 namespace WebStream\Cache\Driver;
 
 use WebStream\DI\Injector;
-use WebStream\Module\Container;
+use WebStream\Container\Container;
 
 /**
  * Memcached
