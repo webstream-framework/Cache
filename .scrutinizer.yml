@@ -3,6 +3,7 @@ checks:
 filter:
     excluded_paths:
         - 'Test/*'
+        - 'Modules/*'
 tools:
     external_code_coverage:
         timeout: 2400
