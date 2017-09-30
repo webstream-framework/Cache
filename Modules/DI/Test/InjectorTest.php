@@ -12,7 +12,7 @@ require_once dirname(__FILE__) . '/Fixtures/StrictInjected.php';
  * @since 2016/09/11
  * @version 0.7
  */
-class InjectorTest extends \PHPUnit_Framework_TestCase
+class InjectorTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * 正常系
