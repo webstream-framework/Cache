@@ -2,7 +2,7 @@ checks:
     php: true
 build:
     nodes:
-        tests: true
+        tests: false
         analysis:
             environment:
                 php: 7.0.20
