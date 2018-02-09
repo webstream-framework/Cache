@@ -13,8 +13,6 @@ cache:
 matrix:
   fast_finish: true
   include:
-    - php: 7.2
-      env: VERSION=7.2
     - php: 7.1
       env: VERSION=7.1
     - php: 7.0
@@ -34,5 +32,5 @@ script:
 after_script:
   - docker rm -f test-memcached
   - docker rm -f test-redis
-  - if [[ $VERSION = 7.2 ]]; then wget https://scrutinizer-ci.com/ocular.phar; fi
-  - if [[ $VERSION = 7.2 ]]; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi
+  - if [[ $VERSION = 7.1 ]]; then wget https://scrutinizer-ci.com/ocular.phar; fi
+  - if [[ $VERSION = 7.1 ]]; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi
