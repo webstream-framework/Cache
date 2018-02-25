@@ -22,8 +22,8 @@ before_script:
   - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - composer install
   - mkdir -p build/logs
-  - docker run --name test-memcached -p 21211:11211 -d webstream/memcached
-  - docker run --name test-redis -p 16379:6379 -d webstream/redis
+  - docker run --name test-memcached -p 21211:11211 -d memcached:1.5-alpine
+  - docker run --name test-redis -p 16379:6379 -d redis:4.0-alpine
 
 script:
   - if [[ $VERSION > 7.0 ]]; then docker run -v /home/travis/build/webstream-framework/Cache:/workspace/ --rm --link test-memcached:memcached --link test-redis:redis webstream/php-cli:$VERSION phpdbg -qrr vendor/bin/phpunit --configuration phpunit.xml --coverage-clover=coverage.clover;
