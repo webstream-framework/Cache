@@ -1,4 +1,5 @@
 <?php
+
 namespace WebStream\Cache\Driver;
 
 use WebStream\Container\Container;
@@ -24,7 +25,7 @@ interface ICache
      * @param int $ttl キャッシュ保持期間(秒)
      * @param bool $overwrite 上書きフラグ
      */
-    public function add($key, $value, $ttl, $overwrite): bool;
+    public function add($key, $value, $ttl = 0, $overwrite = false): bool;
 
     /**
      * キャッシュを取得する

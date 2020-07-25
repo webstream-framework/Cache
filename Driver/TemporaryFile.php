@@ -1,4 +1,5 @@
 <?php
+
 namespace WebStream\Cache\Driver;
 
 use WebStream\DI\Injector;
