@@ -10,6 +10,20 @@ services:
     tty: true
     networks:
       - webstream_framework
+  memcached:
+    image: memcached:1.6-alpine
+    container_name: webstream-framework-cache-memcached
+    ports:
+      - 11211:11211
+    networks: 
+      - webstream_framework
+  redis:
+    image: redis:5-alpine
+    container_name: webstream-framework-cache-redis
+    ports:
+      - 6379:6379
+    networks: 
+      - webstream_framework
 networks:
   webstream_framework:
     external: true
