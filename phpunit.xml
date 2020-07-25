@@ -11,7 +11,7 @@
       <exclude>
         <directory>./Test</directory>
         <directory>./Modules</directory>
-        <file>Driver/CacheDriverFactory.php</file>
+        <directory>./vendor</directory>
       </exclude>
     </whitelist>
   </filter>

@@ -4,34 +4,30 @@ build:
     nodes:
         analysis:
             environment:
-                php: 7.0.20
+                php: 7.3.0
             tests:
                 override:
-                    - command: phpcs-run
-                      use_website_config: true
+                    - phpcs-run
                     - php-scrutinizer-run
 
 filter:
     excluded_paths:
         - 'Test/*'
         - 'Modules/*'
-        - 'Driver/CacheDriverFactory.php'
 tools:
     external_code_coverage:
         timeout: 2400
+    php_sim: true
+    php_cpd: false
     php_code_coverage:
         enabled: false
-    php_cpd:
-        excluded_dirs:
-            - Test
     php_cs_fixer:
         config:
-            level: psr2
+            level: psr12
         filter:
             excluded_paths:
                 - 'Test/*'
                 - 'Modules/*'
-                - 'Driver/CacheDriverFactory.php'
     php_mess_detector:
         config:
             rulesets:
@@ -46,4 +42,3 @@ tools:
             excluded_paths:
                 - 'Test/*'
                 - 'Modules/*'
-                - 'Driver/CacheDriverFactory.php'
