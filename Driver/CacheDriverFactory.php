@@ -1,4 +1,5 @@
 <?php
+
 namespace WebStream\Cache\Driver;
 
 use WebStream\Container\Container;
@@ -57,7 +58,7 @@ class CacheDriverFactory
         $cacheContainer->available = extension_loaded('apcu');
         $cacheContainer->cachePrefix = "cache.apcu";
         $cacheContainer->classPrefix = $container->classPrefix ?: "";
-        $cacheContainer->driver = new class()
+        $cacheContainer->driver = new class ()
         {
             public function delegate($function, array $args = [])
             {
@@ -167,21 +168,21 @@ class CacheDriverFactory
         $cacheContainer->available = $dir->isWritable();
         $cacheContainer->cacheDir = $container->cacheDir;
         $cacheContainer->ioContainer = new Container();
-        $cacheContainer->ioContainer->fileReader = new class()
+        $cacheContainer->ioContainer->fileReader = new class ()
         {
             public function getReader(File $file)
             {
                 return new FileReader($file);
             }
         };
-        $cacheContainer->ioContainer->fileWriter = new class()
+        $cacheContainer->ioContainer->fileWriter = new class ()
         {
             public function getWriter($file, $isAppend)
             {
                 return new FileWriter($file, $isAppend);
             }
         };
-        $cacheContainer->ioContainer->fileIterator = new class()
+        $cacheContainer->ioContainer->fileIterator = new class ()
         {
             public function getIterator($dirPath)
             {

@@ -1,13 +1,9 @@
 <?php
+
 namespace WebStream\Cache\Test\Providers;
 
 use WebStream\Container\Container;
-use WebStream\Cache\Driver\Apcu;
-use WebStream\Cache\Driver\Memcached;
-use WebStream\Cache\Driver\Redis;
-use WebStream\Cache\Driver\TemporaryFile;
 use WebStream\Cache\Driver\CacheDriverFactory;
-use WebStream\IO\File;
 
 /**
  * CacheProvider
