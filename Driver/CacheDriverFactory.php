@@ -18,7 +18,7 @@ class CacheDriverFactory
     /**
      * キャッシュドライバオブジェクトを作成する
      * @param string $classpath ドライバクラスパス
-     * @param Container $config 依存コンテナ
+     * @param Container|null $config 依存コンテナ
      * @return ICache キャッシュドライバオブジェクト
      */
     public function create(string $classpath, Container $config = null): ICache

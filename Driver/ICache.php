@@ -24,6 +24,7 @@ interface ICache
      * @param mixed $value キャッシュ値
      * @param int $ttl キャッシュ保持期間(秒)
      * @param bool $overwrite 上書きフラグ
+     * @return bool
      */
     public function add($key, $value, $ttl = 0, $overwrite = false): bool;
 
