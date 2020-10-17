@@ -2,8 +2,8 @@
 
 namespace WebStream\Cache\Driver;
 
-use WebStream\DI\Injector;
 use WebStream\Container\Container;
+use WebStream\DI\Injector;
 
 /**
  * Apcu
@@ -18,12 +18,12 @@ class Apcu implements ICache
     /**
      * @var Container キャッシュ依存コンテナ
      */
-    private $cacheContainer;
+    private Container $cacheContainer;
 
     /**
      * @var string キャッシュ接頭辞
      */
-    private $cachePrefix;
+    private string $cachePrefix;
 
     /**
      * {@inheritdoc}

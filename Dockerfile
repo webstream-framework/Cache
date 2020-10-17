@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN pecl install memcached-3.1.5 && \
   pecl install redis-5.3.1 && \
-  pecl install xdebug-2.9.6 && \
+  pecl install xdebug-2.9.8 && \
   pecl install apcu && \
   echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini && \
   echo "xdebug.reemote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini && \

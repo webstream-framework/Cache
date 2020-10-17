@@ -24,6 +24,7 @@ require_once dirname(__FILE__) . '/Modules/InvalidArgumentException.php';
 require_once dirname(__FILE__) . '/Modules/IOException.php';
 require_once dirname(__FILE__) . '/Providers/CacheProvider.php';
 
+use PHPUnit\Framework\TestCase;
 use WebStream\Cache\Test\Providers\CacheProvider;
 
 /**
@@ -32,7 +33,7 @@ use WebStream\Cache\Test\Providers\CacheProvider;
  * @since 2016/07/06
  * @version 0.7
  */
-class CacheTest extends \PHPUnit\Framework\TestCase
+class CacheTest extends TestCase
 {
     use CacheProvider;
 
@@ -45,7 +46,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
     public function okAddCache($cache)
     {
         $ttt = $cache->add("key", "value1", 0, false);
-        $this->assertEquals($cache->get("key"), "value1");
+        $this->assertEquals("value1", $cache->get("key"));
     }
 
     /**
@@ -57,7 +58,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
     public function okAddOverwriteCache($cache)
     {
         $cache->add("key", "value1", 0, true);
-        $this->assertEquals($cache->get("key"), "value1");
+        $this->assertEquals("value1", $cache->get("key"));
     }
 
     /**
@@ -65,6 +66,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
      * キャッシュを削除できること
      * @test
      * @dataProvider cacheProvider
+     * @param $cache
      */
     public function okDeleteCache($cache)
     {
@@ -78,6 +80,7 @@ class CacheTest extends \PHPUnit\Framework\TestCase
      * キャッシュを削除できること
      * @test
      * @dataProvider cacheProvider
+     * @param $cache
      */
     public function okClearCache($cache)
     {

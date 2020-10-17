@@ -2,10 +2,10 @@
 
 namespace WebStream\Cache\Driver;
 
-use WebStream\DI\Injector;
 use WebStream\Container\Container;
-use WebStream\IO\File;
+use WebStream\DI\Injector;
 use WebStream\Exception\Extend\IOException;
+use WebStream\IO\File;
 
 /**
  * TemporaryFile
@@ -20,12 +20,12 @@ class TemporaryFile implements ICache
     /**
      * @var Container キャッシュ依存コンテナ
      */
-    private $cacheContainer;
+    private Container $cacheContainer;
 
     /**
      * @var string キャッシュ接頭辞
      */
-    private $cachePrefix;
+    private string $cachePrefix;
 
     /**
      * {@inheritdoc}
